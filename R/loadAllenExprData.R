@@ -7,14 +7,25 @@ download.file('http://celltypes.brain-map.org/api/v2/well_known_file_download/69
 dir.create('data-raw/allenMouse',showWarnings = FALSE)
 download.file('http://celltypes.brain-map.org/api/v2/well_known_file_download/694413985',destfile = 'data-raw/allenMouse/mouseExp.zip')
 
+dir.create('data-raw/allenALMMouse',showWarnings = FALSE)
+download.file('http://celltypes.brain-map.org/api/v2/well_known_file_download/694413179',destfile = 'data-raw/allenALMMouse/mouseExp.zip')
+
+# data from mouse primary motor cortex nuclei
+# nuclei is good because it's a direct comparison to the human nuclei based data
+dir.create('data-raw/allenMouseMOpNuclei', showWarnings = F)
+download.file('http://celltypes.brain-map.org/api/v2/well_known_file_download/738608585',destfile = 'data-raw/allenMouseMOpNuclei/mouseExp.zip')
 
 unzip('data-raw/allenHuman/humanExp.zip',exdir = 'data-raw/allenHuman')
 unzip('data-raw/allenMouse/mouseExp.zip',exdir = 'data-raw/allenMouse')
+unzip('data-raw/allenALMMouse/mouseExp.zip',exdir = 'data-raw/allenALMMouse')
+unzip('data-raw/allenMouseMOpNuclei/mouseExp.zip',exdir = 'data-raw/allenMouseMOpNuclei')
+
 
 
 library(readr)
 library(edgeR)
 
+### load human MTG nuclei data
 humanIntrons = read_csv('data-raw/allenHuman/human_MTG_2018-06-14_intron-matrix.csv')
 humanExons = read_csv('data-raw/allenHuman/human_MTG_2018-06-14_exon-matrix.csv')
 humanGenes = read_csv('data-raw/allenHuman/human_MTG_2018-06-14_genes-rows.csv')
@@ -36,6 +47,7 @@ rownames(humanIntronCPMLog) = humanGenes$gene
 
 saveRDS(humanIntronCPMLog,file= 'data-raw/allenHuman/humanIntron.rds')
 
+### load mouse visual cortex dissociated cell data
 mouseIntrons = read_csv('data-raw/allenMouse/mouse_VISp_2018-06-14_intron-matrix.csv')
 mouseExons = read_csv('data-raw/allenMouse/mouse_VISp_2018-06-14_exon-matrix.csv')
 mouseGenes = read_csv('data-raw/allenMouse/mouse_VISp_2018-06-14_genes-rows.csv')
@@ -58,4 +70,28 @@ rownames(mouseIntronCPMLog) = mouseGenes$gene_symbol
 
 saveRDS(mouseIntronCPMLog,file= 'data-raw/allenMouse/mouseIntron.rds')
 
-rm(humanSum, humanCPM, humanCPMLog, humanIntron, humanIntronCPMLog, mouseSum, mouseCPM, mouseCPMLog, mouseIntronCPM, mouseIntronCPMLog)
+rm(humanSum, humanCPM, humanCPMLog, humanIntron, humanIntronCPMLog, mouseSum, mouseCPM, mouseCPMLog, mouseIntronCPM, mouseIntronCPMLog, mouseIntrons)
+
+### load mouse nuclei data
+mouseNucleiIntrons = read_csv('data-raw/allenMouseMOpNuclei/mouse_MOp_nuclei_2018-10-04_intron-matrix.csv')
+mouseNucleiExons = read_csv('data-raw/allenMouseMOpNuclei/mouse_MOp_nuclei_2018-10-04_exon-matrix.csv')
+mouseNucleiGenes = read_csv('data-raw/allenMouseMOpNuclei/mouse_MOp_nuclei_2018-10-04_genes-rows.csv')
+mouseNucleiMeta = read_csv('data-raw/allenMouseMOpNuclei/mouse_MOp_nuclei_2018-10-04_samples-columns.csv')
+assertthat::assert_that(all(mouseNucleiExons$X1 == mouseNucleiIntrons$X1) & all(mouseNucleiExons$X1 == mouseNucleiGenes$gene)) 
+# note that exon and intron gene names are gene symbols, not entrez ids
+
+assertthat::assert_that(all(colnames(mouseNucleiExons) == colnames(mouseNucleiIntrons)))
+assertthat::assert_that(all(colnames(mouseNucleiExons)[-1] == mouseNucleiMeta$seq_name)) # note that exon and intron 
+# We used log2-transformed CPM of intronic plus exonic reads for both datasets.
+
+mouseSum = mouseNucleiExons[,-1]+mouseNucleiIntrons[,-1]
+mouseNucleiCPM = cpm(mouseSum)
+mouseNucleiBothCPMLog = log2(mouseNucleiCPM +1)
+rownames(mouseNucleiBothCPMLog) = mouseNucleiGenes$gene
+
+colnames(mouseNucleiBothCPMLog) = mouseNucleiMeta$sample_name
+
+saveRDS(mouseNucleiBothCPMLog,file= 'data-raw/allenMouseMOpNuclei/mouseNucleiBothCPMLog.rds')
+
+rm(mouseNucleiExons, mouseNucleiIntrons, mouseNucleiIntrons, mouseSum, mouseNucleiCPM, mouseNucleiBothCPMLog)
+
