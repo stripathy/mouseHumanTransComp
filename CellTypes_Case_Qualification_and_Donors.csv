@@ -1,0 +1,61 @@
+donor,data_type,Tissue,Age,Sex,Race,COD,PMI,RIN,Brain Region,Hemisphere,Reason for surgery,release
+H200.1023,T,P,43,F,I,mitral valve prolapse,18.5,7.4 ± 0.7,MTG,L,N/A,Oct-17
+H200.1025,T,P,50,M,C,CV,24.5,7.6 ± 1.0,MTG,L,N/A,Oct-17
+H200.1030,T,P,54,M,C,CV,25,7.7 ± 0.8,MTG,L,N/A,Oct-17
+H16.24.010,T,P,66,M,C,CV,21,7.2 ± 1.4,MTG,L,N/A,Oct-17
+H16.06.002,T,N,35,F,C,N/A,N/A,7.1 ± 0.9,MTG,R,Epilepsy,Oct-17
+H16.06.008,T,N,24,F,H,N/A,N/A,8.1 ± 0.8,MTG,L,Epilepsy,Oct-17
+H16.06.009,T,N,48,F,C,N/A,N/A,7.1,MTG,L,Epilepsy,Oct-17
+H16.03.004,T,N,25,M,NN,N/A,N/A,8.2 ± 0.8,MTG,R,"tumor, epilepsy",Oct-17
+H15.03.005,ME,N,50,F,C,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H15.03.006,ME,N,24,F,C,N/A,N/A,N/A,ITG,L,Epilepsy,Oct-17
+H15.06.016,ME,N,27,F,C,N/A,N/A,N/A,IFG (frontal),R,Tumor removal,Oct-17
+H15.06.017,ME,N,65,M,A,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H15.06.018,ME,N,19,F,C,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H16.03.001,ME,N,39,M,C,N/A,N/A,N/A,MTG,L,Epilepsy,Oct-17
+H16.03.002,ME,N,41,F,N/Av,N/A,N/A,N/A,MTG,L,Epilepsy,Oct-17
+H16.03.003,ME,N,25,M,N/Av,N/A,N/A,N/A,FroL (frontal),R,Epilepsy,Oct-17
+H16.03.005,ME,N,27,M,N/Av,N/A,N/A,N/A,TemL,R,Epilepsy,Oct-17
+H16.03.006,ME,N,33,F,N/Av,N/A,N/A,N/A,MTG,R,"Epilepsy, CM",Oct-17
+H16.03.007,ME,N,28,F,C,N/A,N/A,N/A,MTG,L,Epilepsy,Oct-17
+H16.03.008,ME,N,31,M,N/Av,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H16.03.009,ME,N,37,M,N/Av,N/A,N/A,N/A,AnG (parietal),L,Epilepsy,Oct-17
+H16.03.010,ME,N,48,M,C,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H16.03.011,ME,N,42,M,N/Av,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H16.03.012,ME,N,33,M,C,N/A,N/A,N/A,TemL,R,Epilepsy,Oct-17
+H16.06.002,ME,N,35,F,C,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H16.06.003,ME,N,31,F,C,N/A,N/A,N/A,MTG,L,Epilepsy,Oct-17
+H16.06.004,ME,N,37,M,C,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H16.06.006,ME,N,42,M,C,N/A,N/A,N/A,FroL (frontal),R,Tumor removal,Oct-17
+H16.06.007,ME,N,26,M,C,N/A,N/A,N/A,FroL (frontal),L,Tumor removal,Oct-17
+H16.06.008,ME,N,24,F,H,N/A,N/A,N/A,MTG,L,Epilepsy,Oct-17
+H16.06.009,ME,N,48,F,C,N/A,N/A,N/A,MTG,L,Epilepsy,Oct-17
+H16.06.010*,ME,N,67,M,C,N/A,N/A,N/A,"ITG, MTG",L,Epilepsy,Oct-17
+H16.06.011,ME,N,24,F,C,N/A,N/A,N/A,MTG,L,Epilepsy,Oct-17
+H16.06.012,ME,N,83,M,NH/NL,N/A,N/A,N/A,MFG (frontal),R,Tumor removal,Oct-17
+H17.03.002,ME,N,61,M,N/Av,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H17.03.005,ME,N,60,M,N/Av,N/A,N/A,N/A,MTG,R,Epilepsy,Jun-18
+H17.03.007,ME,N,27,F,N/Av,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H17.03.008,ME,N,60,F,C,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H17.03.009,ME,N,18,M,N/Av,N/A,N/A,N/A,MTG,R,Epilepsy,Oct-17
+H17.03.010,ME,N,38,F,N/Av,N/A,N/A,N/A,MTG,L,Epilepsy,Jun-18
+H17.03.011,ME,N,30,M,N/Av,N/A,N/A,N/A,MTG,R,Epilepsy,Jun-18
+H17.06.003,ME,N,23,F,NH/NL,N/A,N/A,N/A,MTG,L,Epilepsy,Oct-17
+H17.06.003,ME,N,23,F,NH/NL,N/A,N/A,N/A,MTG,L,Epilepsy,Oct-17
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
